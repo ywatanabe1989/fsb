@@ -24,7 +24,7 @@ from .bundle import Bundle
 from .models import DataInfo, Encoding, Node, Stats, Theme
 from .schemas import SCHEMA_NAMES, load_schema, validate
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __all__ = [
     "Bundle",
     "Node",

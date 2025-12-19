@@ -13,7 +13,7 @@ from pathlib import Path
 import fsb
 
 # Output directory
-OUT_DIR = Path(__file__).parent / "output"
+OUT_DIR = Path(__file__).parent / f"{Path(__file__).stem}_out"
 OUT_DIR.mkdir(exist_ok=True)
 
 
@@ -33,7 +33,7 @@ def main():
     print(f"Size: {bundle.node.size_mm}")
 
     # Update encoding
-    bundle._encoding = {
+    bundle.encoding = {
         "traces": [
             {
                 "trace_id": "line1",
@@ -45,7 +45,7 @@ def main():
     }
 
     # Update theme
-    bundle._theme = {
+    bundle.theme = {
         "colors": {"palette": ["#1f77b4", "#ff7f0e", "#2ca02c"]},
         "typography": {"family": "sans-serif", "size_pt": 10},
         "lines": {"width_pt": 1.5},

@@ -15,7 +15,7 @@ from pathlib import Path
 
 import fsb
 
-OUT_DIR = Path(__file__).parent / "output"
+OUT_DIR = Path(__file__).parent / f"{Path(__file__).stem}_out"
 OUT_DIR.mkdir(exist_ok=True)
 
 
@@ -71,7 +71,7 @@ def main():
         json.dump(data_info, f, indent=2)
 
     # Add encoding
-    bundle._encoding = {
+    bundle.encoding = {
         "traces": [
             {
                 "trace_id": "control",
@@ -92,7 +92,7 @@ def main():
     }
 
     # Add stats
-    bundle._stats = {
+    bundle.stats = {
         "analyses": [
             {
                 "result_id": "ttest_01",
