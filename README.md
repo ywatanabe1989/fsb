@@ -408,3 +408,56 @@ If you use FSB in your research, please cite:
   url = {https://github.com/ywatanabe1989/fsb}
 }
 ```
+
+### Render to Image
+
+```python
+import fsb
+
+bundle = fsb.Bundle("my_plot")
+
+# Render to PNG bytes
+png_bytes = fsb.render_bundle(bundle, fmt="png", dpi=150)
+
+# Export to file
+fsb.export_bundle(bundle, format="png", dpi=300)
+fsb.export_bundle(bundle, format="svg")
+fsb.export_bundle(bundle, format="pdf")
+
+# Quick preview
+preview = fsb.render_preview(bundle, dpi=72)
+```
+
+### Statistical Analysis
+
+```python
+from fsb import stats
+import numpy as np
+
+# Run t-test
+group1 = np.array([1, 2, 3, 4, 5])
+group2 = np.array([2, 4, 5, 6, 8])
+
+result = stats.ttest_ind(group1, group2)
+print(result.display["formatted"])  # t(8) = -2.12, p = 0.067
+
+# Effect size
+d = stats.cohens_d(group1, group2)
+print(f"Cohen's d: {d:.2f}")  # Cohen's d: -1.06
+
+# P-value to stars
+print(stats.p_to_stars(0.001))  # ***
+print(stats.p_to_stars(0.01))   # **
+print(stats.p_to_stars(0.05))   # *
+
+# Multiple comparison correction
+p_values = np.array([0.01, 0.04, 0.03, 0.2])
+corrected, reject = stats.bonferroni(p_values)
+```
+
+Available tests: `ttest_ind`, `ttest_paired`, `mannwhitneyu`, `wilcoxon`, `anova_oneway`, `kruskal`, `pearsonr`, `spearmanr`, `chi2_contingency`
+
+Effect sizes: `cohens_d`, `hedges_g`, `eta_squared`, `r_to_d`
+
+Correction methods: `bonferroni`, `holm`, `fdr_bh`
+

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fsb"
-version = "0.1.1"
+version = "0.1.2"
 description = "Figure-Statistics Bundle: A specification for reproducible scientific figures"
 readme = "README.md"
 license = {text = "AGPL-3.0"}
@@ -42,14 +42,17 @@ dev = [
     "black>=23.0",
     "ruff>=0.1",
 ]
+# Rendering requires matplotlib
 plotting = [
     "matplotlib>=3.5",
     "numpy>=1.20",
 ]
+# Statistical analysis
 stats = [
     "scipy>=1.9",
     "statsmodels>=0.14",
 ]
+# All optional features
 all = [
     "fsb[plotting,stats]",
 ]

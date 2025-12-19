@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://fsb.scitex.io/schemas/data_info.schema.json",
+  "$id": "https://scitex.ai/schemas/fsb/data_info.schema.json",
   "title": "FSB Data Info Schema",
   "description": "Schema for data file metadata (column meanings, units, dtypes, source)",
   "type": "object",

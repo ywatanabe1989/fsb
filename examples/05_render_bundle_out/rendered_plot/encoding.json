@@ -1,0 +1,34 @@
+{
+  "traces": [
+    {
+      "trace_id": "sensor_a",
+      "data_ref": "data/data.csv",
+      "x": {
+        "column": "time",
+        "scale": "linear"
+      },
+      "y": {
+        "column": "sensor_a",
+        "scale": "linear"
+      }
+    },
+    {
+      "trace_id": "sensor_b",
+      "data_ref": "data/data.csv",
+      "x": {
+        "column": "time",
+        "scale": "linear"
+      },
+      "y": {
+        "column": "sensor_b",
+        "scale": "linear"
+      }
+    }
+  ],
+  "legends": {
+    "color": {
+      "sensor_a": "Sensor A",
+      "sensor_b": "Sensor B"
+    }
+  }
+}

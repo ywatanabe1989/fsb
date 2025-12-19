@@ -1,0 +1,26 @@
+{
+  "colors": {
+    "palette": [
+      "#e41a1c",
+      "#377eb8",
+      "#4daf4a"
+    ],
+    "background": "#ffffff"
+  },
+  "typography": {
+    "family": "sans-serif",
+    "size_pt": 10,
+    "title_size_pt": 12
+  },
+  "lines": {
+    "width_pt": 2.0
+  },
+  "markers": {
+    "size_pt": 4,
+    "style": "o"
+  },
+  "grid": {
+    "visible": true,
+    "color": "#eeeeee"
+  }
+}

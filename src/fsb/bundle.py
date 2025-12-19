@@ -387,7 +387,7 @@ class Bundle:
         # matplotlib integration
         raise NotImplementedError(
             "Export requires matplotlib integration. "
-            "Use the full SciTeX package for rendering."
+            "Use the full scitex package for rendering."
         )
 
     def clear_cache(self) -> None:

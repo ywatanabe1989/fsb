@@ -12,28 +12,92 @@ The FSB format organizes scientific figures as bundles containing:
 - exports/: Derived outputs (PNG, SVG, PDF)
 - cache/: Regenerable files (geometry_px, hitmap)
 
+Node Types:
+- figure: Container node with children (multi-panel figures)
+- plot: Leaf node with traces (single plots)
+
 Example:
     >>> import fsb
-    >>> bundle = fsb.Bundle("my_figure")
-    >>> bundle.node  # Access node configuration
-    >>> bundle.encoding  # Access encoding mappings
-    >>> bundle.validate()  # Validate against schemas
+    >>>
+    >>> # Create a plot bundle
+    >>> bundle = fsb.Bundle("my_plot", create=True, node_type="plot")
+    >>> bundle.encoding = {"traces": [...]}
+    >>> bundle.save()
+    >>>
+    >>> # Render to PNG
+    >>> png_bytes = fsb.render_bundle(bundle, dpi=150)
+    >>>
+    >>> # Run statistics
+    >>> from fsb import stats
+    >>> result = stats.ttest_ind(group1, group2)
 """
 
 from .bundle import Bundle
-from .models import DataInfo, Encoding, Node, Stats, Theme
+from .models import (
+    Axes,
+    BBox,
+    ChannelEncoding,
+    ColumnInfo,
+    DataInfo,
+    Encoding,
+    Node,
+    NodeRefs,
+    SizeMM,
+    Stats,
+    StatsResult,
+    Theme,
+    TraceEncoding,
+)
 from .schemas import SCHEMA_NAMES, load_schema, validate
 
-__version__ = "0.1.1"
+# Rendering (requires matplotlib)
+try:
+    from .rendering import (
+        MATPLOTLIB_AVAILABLE,
+        export_bundle,
+        render_bundle,
+        render_node,
+        render_preview,
+    )
+except ImportError:
+    MATPLOTLIB_AVAILABLE = False
+    render_bundle = None
+    render_node = None
+    render_preview = None
+    export_bundle = None
+
+# Stats module
+from . import stats
+
+__version__ = "0.1.2"
 __all__ = [
+    # Core
     "Bundle",
+    "__version__",
+    # Models
     "Node",
+    "BBox",
+    "SizeMM",
+    "Axes",
+    "NodeRefs",
     "Encoding",
+    "ChannelEncoding",
+    "TraceEncoding",
     "Theme",
     "Stats",
+    "StatsResult",
     "DataInfo",
+    "ColumnInfo",
+    # Schema validation
     "validate",
     "load_schema",
     "SCHEMA_NAMES",
-    "__version__",
+    # Rendering
+    "MATPLOTLIB_AVAILABLE",
+    "render_bundle",
+    "render_node",
+    "render_preview",
+    "export_bundle",
+    # Statistics
+    "stats",
 ]
