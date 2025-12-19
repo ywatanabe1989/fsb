@@ -1,0 +1,81 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fsb"
+version = "0.1.0"
+description = "Figure-Statistics Bundle: A specification for reproducible scientific figures"
+readme = "README.md"
+license = {text = "AGPL-3.0"}
+authors = [
+    {name = "Yusuke Watanabe", email = "ywatanabe@scitex.ai"}
+]
+keywords = [
+    "scientific-figures",
+    "reproducibility",
+    "visualization",
+    "statistics",
+    "data-science"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "jsonschema>=4.0",
+    "pandas>=1.5",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "ruff>=0.1",
+]
+plotting = [
+    "matplotlib>=3.5",
+    "numpy>=1.20",
+]
+stats = [
+    "scipy>=1.9",
+    "statsmodels>=0.14",
+]
+all = [
+    "fsb[plotting,stats]",
+]
+
+[project.urls]
+Homepage = "https://github.com/ywatanabe1989/fsb"
+Documentation = "https://github.com/ywatanabe1989/fsb#readme"
+Repository = "https://github.com/ywatanabe1989/fsb"
+Issues = "https://github.com/ywatanabe1989/fsb/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+fsb = ["schemas/*.json"]
+
+[tool.black]
+line-length = 88
+target-version = ["py39", "py310", "py311", "py312"]
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "W", "I", "UP"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
