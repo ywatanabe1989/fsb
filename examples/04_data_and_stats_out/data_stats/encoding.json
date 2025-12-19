@@ -1,0 +1,30 @@
+{
+  "traces": [
+    {
+      "trace_id": "control",
+      "data_ref": "data/data.csv",
+      "x": {
+        "column": "time"
+      },
+      "y": {
+        "column": "value"
+      }
+    },
+    {
+      "trace_id": "treatment",
+      "data_ref": "data/data.csv",
+      "x": {
+        "column": "time"
+      },
+      "y": {
+        "column": "value"
+      }
+    }
+  ],
+  "legends": {
+    "color": {
+      "control": "Control Group",
+      "treatment": "Treatment Group"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "traces": [
+    {
+      "trace_id": "line1",
+      "data_ref": "data/data.csv",
+      "x": {
+        "column": "time",
+        "scale": "linear"
+      },
+      "y": {
+        "column": "value",
+        "scale": "linear"
+      }
+    }
+  ]
+}

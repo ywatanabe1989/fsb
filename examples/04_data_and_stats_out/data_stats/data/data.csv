@@ -1,0 +1,7 @@
+time,value,group
+0,0.1,control
+1,0.5,control
+2,0.8,control
+3,0.3,treatment
+4,0.9,treatment
+5,1.2,treatment

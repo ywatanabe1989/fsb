@@ -1,0 +1,16 @@
+{
+  "colors": {
+    "palette": [
+      "#1f77b4",
+      "#ff7f0e",
+      "#2ca02c"
+    ]
+  },
+  "typography": {
+    "family": "sans-serif",
+    "size_pt": 10
+  },
+  "lines": {
+    "width_pt": 1.5
+  }
+}

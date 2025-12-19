@@ -12,7 +12,7 @@ from pathlib import Path
 
 import fsb
 
-OUT_DIR = Path(__file__).parent / "output"
+OUT_DIR = Path(__file__).parent / f"{Path(__file__).stem}_out"
 OUT_DIR.mkdir(exist_ok=True)
 
 

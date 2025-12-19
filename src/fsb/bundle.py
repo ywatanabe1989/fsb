@@ -40,7 +40,7 @@ class Bundle:
         >>> bundle = Bundle("my_plot")
         >>> bundle.node.type
         'plot'
-        >>> bundle.encoding.traces[0].x.column
+        >>> bundle.encoding["traces"][0]["x"]["column"]
         'time'
         >>> bundle.save()
     """
@@ -208,15 +208,33 @@ class Bundle:
         """Get the encoding configuration."""
         return self._encoding
 
+    @encoding.setter
+    def encoding(self, value: Dict[str, Any]) -> None:
+        """Set the encoding configuration."""
+        self._encoding = value
+        self._modified = True
+
     @property
     def theme(self) -> Optional[Dict[str, Any]]:
         """Get the theme configuration."""
         return self._theme
 
+    @theme.setter
+    def theme(self, value: Dict[str, Any]) -> None:
+        """Set the theme configuration."""
+        self._theme = value
+        self._modified = True
+
     @property
     def stats(self) -> Optional[Dict[str, Any]]:
         """Get the stats configuration."""
         return self._stats
+
+    @stats.setter
+    def stats(self, value: Dict[str, Any]) -> None:
+        """Set the stats configuration."""
+        self._stats = value
+        self._modified = True
 
     @property
     def data_info(self) -> Optional[Dict[str, Any]]:

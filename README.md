@@ -1,7 +1,7 @@
 # FSB: Figure-Statistics Bundle
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 
 **FSB** is a specification and Python API for reproducible scientific figures. It defines a structured bundle format that captures everything needed to reproduce a figure: data, encodings, theme, and statistical analyses.
 
@@ -49,7 +49,7 @@ bundle = fsb.Bundle(
 )
 
 # Configure encoding
-bundle._encoding = {
+bundle.encoding = {
     "traces": [{
         "trace_id": "line1",
         "data_ref": "data/data.csv",
@@ -394,7 +394,7 @@ ruff check src tests
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details.
+AGPL-3.0 License - see [LICENSE](LICENSE) for details.
 
 ## Citation
 
